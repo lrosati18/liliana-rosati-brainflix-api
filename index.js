@@ -7,7 +7,6 @@ const cors = require("cors");
 app.use(express.static("public"));
 
 const PORT = process.env.PORT;
-const CLIENT_URL = process.env.CLIENT_URL;
 
 app.use(cors());
 app.use(express.json());

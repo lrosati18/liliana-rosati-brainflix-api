@@ -4,6 +4,7 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
 const FILE_PATH = "./data/videos.json";
+const PORT = process.env.PORT;
 
 const readVideos = (selectedParameters = false) => {
   const videosData = fs.readFileSync(FILE_PATH);
@@ -42,13 +43,13 @@ router.get("/videos/:videoId", (req, res) => {
 });
 
 //POST new video
-router.post("/upload", (req, res) => {
+router.post("/videos", (req, res) => {
   const videoObj = req.body;
   const newVideo = {
     id: uuidv4(),
     title: videoObj.title,
-    channel: "Channel",
-    image: "./public/images/Upload-video-preview.jpg",
+    channel: "Liliana Rosati",
+    image: `http://localhost:${PORT}/images/Upload-video-preview.jpg`,
     description: videoObj.description,
     views: "1,000,000",
     likes: "100,000",
